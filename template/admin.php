@@ -1,7 +1,7 @@
 <?php 
 
 if ( ! defined( 'ABSPATH' ) ) {
-    exit; // Exit if accessed directly
+    exit;
 }
 
 require_once dirname(__DIR__).'/../payment-fees-for-woocommerce/inc/pffw-helper.php';

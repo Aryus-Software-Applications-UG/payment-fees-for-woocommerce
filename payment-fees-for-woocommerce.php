@@ -4,11 +4,10 @@
  */
 /*
 Plugin Name: Payment Fees for WooCommerce
-Description: Add a payment fee to WooCommerce.
-Version: 1.0
+Description: Add a payment fees to your WooCommerce Payment methods.
+Version: 1.0.0
 Author: a-sites | Aryus Software Applications UG (haftungsbeschränkt)
-Author URI: https://www.a-sites.de/
-Author URI: https://a-sites.de
+Author URI: https://www.a-sites.de
 License: GPLv2 or later
 Text Domain: payment-fees-for-woocommerce
 */
