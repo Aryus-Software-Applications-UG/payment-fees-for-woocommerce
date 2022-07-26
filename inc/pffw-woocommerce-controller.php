@@ -1,8 +1,5 @@
 <?php
 
-
-// require_once( ABSPATH . 'wp-content/plugins/woocommerce/woocommerce.php' );
-
 require_once dirname(__DIR__).'/inc/pffw-fee-controller.php';
 
 
