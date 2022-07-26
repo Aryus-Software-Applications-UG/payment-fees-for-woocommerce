@@ -1,10 +1,16 @@
 <?php
+/**
+ * @package Payment Fees for WooCommerce
+ */
 /*
 Plugin Name: Payment Fees for WooCommerce
-Discription: Add a payment fee to WooCommerce.
+Description: Add a payment fee to WooCommerce.
 Version: 1.0
 Author: a-sites | Aryus Software Applications UG (haftungsbeschränkt)
+Author URI: https://www.a-sites.de/
 Author URI: https://a-sites.de
+License: GPLv2 or later
+Text Domain: payment-fees-for-woocommerce
 */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -25,7 +31,6 @@ class Payment_Fees_For_Woocommerce {
 
         $this->pluginbasename = plugin_basename( __FILE__ );
 
-        // add_action( 'init', array( $this, 'as_setup_admin_menu' ) );
     }
 
 	function as_setup_admin_menu() {
@@ -48,34 +53,6 @@ class Payment_Fees_For_Woocommerce {
 
 	public function as_deactivate() {
 		flush_rewrite_rules();
-	}
-
-	public function woocommerce_custom_fee() {
-		if ( is_admin() && ! defined( 'DOING_AJAX' ) ) return;
-		
-		$wcmctrl = new WooCommerce_Controller();
-		$wcm->set_payment_fee("Payment Fee");
-	
-	}
-
-	public function  wc_add_surcharge() { 
-		
-	}
-
-	public function wcfad_script() {
-		?>
-			<script>
-			jQuery(document).ready(function($){
-				$('body').on('change','.checkout .input-radio',function(){
-					$('body').trigger('update_checkout');
-				});
-			});
-			</script>
-		<?php
-	}
-	
-	public function reload_checkout_script() {
-		
 	}
 	
 }
