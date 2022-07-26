@@ -20,5 +20,5 @@ This has the huge advantage for you, that you no longer need to include the fees
 3. Activate the plugin through the \'Plugins\' menu in WordPress
 
 == Changelog ==
-= 0.1 =
+= 1.0.0 =
 * Initial plugin release
