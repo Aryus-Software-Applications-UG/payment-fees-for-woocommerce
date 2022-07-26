@@ -6,7 +6,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
 
-class DB_Controller {
+class PFFW_DB_Controller {
     private $wpdb;
 	private $fee_table_name;
 

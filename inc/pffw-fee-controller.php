@@ -1,19 +1,19 @@
 <?php
 
 if ( ! defined( 'ABSPATH' ) ) {
-    exit; // Exit if accessed directly
+    exit;
 }
 
- require_once dirname(__DIR__).'/inc/woocommerce-controller.php';
- require_once dirname(__DIR__).'/inc/db-controller.php';
+ require_once dirname(__DIR__).'/inc/pffw-woocommerce-controller.php';
+ require_once dirname(__DIR__).'/inc/pffw-db-controller.php';
 
-class Fee_Controller {
+class PFFW_Fee_Controller {
 
     private $dbctrl;
 
     public function __construct() {
-        $this->wcmctrl = new WooCommerce_Controller();
-        $this->dbctrl = new DB_Controller();
+        $this->wcmctrl = new PFFW_WooCommerce_Controller();
+        $this->dbctrl = new PFFW_DB_Controller();
     }
     
     public function save_fee() {
@@ -37,7 +37,7 @@ class Fee_Controller {
         foreach ($fees as $key => $fee) {
             foreach ($this->get_enabled_payment_gateways() as $index => $gateway) {
                 if($key == $gateway) {
-                    $this->dbctrl->insert_fee($gateway, $fee, -1);
+                    $this->dbctrl->insert_fee($gateway, (int)$fee, (int)-1);
                 }
             }
         }
@@ -49,8 +49,8 @@ class Fee_Controller {
         $enabled_payment_gateways = $this->get_enabled_payment_gateways();
 
         foreach ($enabled_payment_gateways as $key => $payment_gateway) {
-            if (isset($_COOKIE[$payment_gateway])) {
-                $res[$payment_gateway] = $_COOKIE[$payment_gateway];
+            if (wp_kses( $_COOKIE[$payment_gateway], null)) {
+                $res[$payment_gateway] = wp_kses( $_COOKIE[$payment_gateway], null);
             }
 
         }
@@ -59,7 +59,7 @@ class Fee_Controller {
     }
     
     private function get_cookies() {
-        return $_COOKIE;
+        return wp_kses($_COOKIE, null);
     }
 
     private function get_enabled_payment_gateways() {
