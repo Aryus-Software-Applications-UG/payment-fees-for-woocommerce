@@ -4,7 +4,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly
 }
 
-class A_Sites_Helper_Functions {
+class PFFW_Helper_Functions {
     
     /** Print Array Pretty */
     public function print_array_pretty($array, $exactly_detailed = false) {

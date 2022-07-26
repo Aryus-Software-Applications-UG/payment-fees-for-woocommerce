@@ -17,9 +17,9 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly
 }
 
-require_once( plugin_dir_path( __FILE__ ) . 'inc/db-controller.php');
-require_once( plugin_dir_path( __FILE__ ) . 'inc/woocommerce-controller.php');
-require_once( plugin_dir_path( __FILE__ ) . 'inc/helper.php');
+require_once( plugin_dir_path( __FILE__ ) . 'inc/pffw-db-controller.php');
+require_once( plugin_dir_path( __FILE__ ) . 'inc/pffw-woocommerce-controller.php');
+require_once( plugin_dir_path( __FILE__ ) . 'inc/pffw-helper.php');
 
 
 
@@ -42,12 +42,12 @@ class Payment_Fees_For_Woocommerce {
 	}
 
 	public function as_activate() {
-		$dbctrl = new DB_Controller();
+		$dbctrl = new PFFW_DB_Controller();
 		$dbctrl->create_db_table_for_fees();
 	}
 
 	public function as_uninstall() {
-		$dbctrl = new DB_Controller();
+		$dbctrl = new PFFW_DB_Controller();
 		$dbctrl->delete_db_table_for_fees();
 	}
 
@@ -68,7 +68,7 @@ if( class_exists('Payment_Fees_For_Woocommerce') ) {
 
 	add_action( 'woocommerce_cart_calculate_fees', 'rudr_paypal_fee', 25 );
 	function rudr_paypal_fee( $cart ) {
-		$fee_controller = new Fee_Controller();
+		$fee_controller = new PFFW_Fee_Controller();
 		
 		if ( is_admin() && ! defined( 'DOING_AJAX' ) ) {
 			return;

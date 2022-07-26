@@ -3,10 +3,10 @@
 
 // require_once( ABSPATH . 'wp-content/plugins/woocommerce/woocommerce.php' );
 
-require_once dirname(__DIR__).'/inc/fee-controller.php';
+require_once dirname(__DIR__).'/inc/pffw-fee-controller.php';
 
 
-class WooCommerce_Controller {
+class PFFW_WooCommerce_Controller {
 
     public function get_enabled_payment_gateways() {
         return $this->_get_enabled_payment_gateways();
@@ -36,7 +36,7 @@ class WooCommerce_Controller {
     }
 
     private function _set_payment_fee($name) {
-        $fee_controller = new Fee_Controller();
+        $fee_controller = new PFFW_Fee_Controller();
         $fee = $fee_controller->get_fee_by_payment_method($payment_method);
     }
 
