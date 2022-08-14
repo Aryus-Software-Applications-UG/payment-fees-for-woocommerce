@@ -9,13 +9,13 @@ class PFFW_Helper_Functions {
     /** Print Array Pretty */
     public function print_array_pretty($array, $exactly_detailed = false) {
         if($exactly_detailed) {
-            echo '<pre>';
+            echo esc_html('<pre>');
             var_dump($arr);
-            echo '</pre>';
+            echo esc_html('<pre>');
         } else {
-            echo '<pre>';
+            echo esc_html('<pre>');
             print_r($array);
-            echo '</pre>';
+            echo esc_html('<pre>');
         }
     }
 
@@ -30,7 +30,7 @@ class PFFW_Helper_Functions {
         } else {
             ?>
             <script>
-                alert(<?php echo $message ?>);
+                alert(<?php echo esc_html($message) ?>);
             </script>
             <?php
         }

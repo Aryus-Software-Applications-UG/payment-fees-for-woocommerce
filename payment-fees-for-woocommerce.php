@@ -57,9 +57,6 @@ class Payment_Fees_For_Woocommerce {
 }
 
 
-
-
-
 if( class_exists('Payment_Fees_For_Woocommerce') ) {
 	
 	$payment_fees_for_woocommerce = new Payment_Fees_For_Woocommerce();
